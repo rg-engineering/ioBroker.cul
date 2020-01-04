@@ -96,11 +96,11 @@ function checkConnection(host, port, timeout, callback) {
 }
 
 function checkPort(callback) {
-    if(adapter.config.type === 'cuno') {
+    if (adapter.config.type === 'cuno') {
         checkConnection(adapter.config.ip, adapter.config.port, 10000, function(err) {
             if (callback) callback(err);
             callback = null;
-        })
+        });
     } else {
         if (!adapter.config.serialport) {
             if (callback) callback('Port is not selected');
