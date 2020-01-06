@@ -96,11 +96,11 @@ function checkConnection(host, port, timeout, callback) {
 }
 
 function checkPort(callback) {
-    if(adapter.config.type === 'cuno') {
+    if (adapter.config.type === 'cuno') {
         checkConnection(adapter.config.ip, adapter.config.port, 10000, function(err) {
             if (callback) callback(err);
             callback = null;
-        })
+        });
     } else {
         if (!adapter.config.serialport) {
             if (callback) callback('Port is not selected');
@@ -292,13 +292,13 @@ function insertObjects(objs, cb) {
 
 function main() {
 
-    adapter.objects.getObject('cul.meta.roles', function (err, res) {
+    adapter.getForeignObject('cul.meta.roles', function (err, res) {
         metaRoles = res.native;
-        adapter.objects.getObjectView('system', 'device', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
+        adapter.getObjectView('system', 'device', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
             for (var i = 0, l = res.rows.length; i < l; i++) {
                 objects[res.rows[i].id] = res.rows[i].value;
             }
-            adapter.objects.getObjectView('system', 'state', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
+            adapter.getObjectView('system', 'state', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
                 for (var i = 0, l = res.rows.length; i < l; i++) {
                     objects[res.rows[i].id] = res.rows[i].value;
                 }

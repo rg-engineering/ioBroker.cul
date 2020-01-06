@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "cul",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "news": {
+            "1.1.0": {
+                "en": "removed usage of adapter.objects",
+                "de": "Verwendung von adapter.objects entfernt",
+                "ru": "удалено использование файла adapter.objects",
+                "pt": "removido o uso de adapter.objects",
+                "nl": "gebruik van adapter.objects verwijderd",
+                "fr": "utilisation supprimée de adapter.objects",
+                "it": "rimosso l'utilizzo di adapter.objects",
+                "es": "uso eliminado de adaptador.objetos",
+                "pl": "usunięto użycie adapter.objects",
+                "zh-cn": "删除了adapter.objects的用法"
+            },
             "1.0.0": {
                 "en": "Support for nodejs 12 added, nodejs 4 is no longer supported!",
                 "de": "Unterstützung für NodeJS 12 hinzugefügt, NodeJS 4 wird nicht mehr unterstützt!",
@@ -45,11 +57,6 @@
                 "en": "Use newer version of cul module",
                 "de": "Benutze neue Version von cul Modul",
                 "ru": "Используется новая версия cul модуля"
-            },
-            "0.1.0": {
-                "en": "Update cul package",
-                "de": "Update cul Paket",
-                "ru": "Обновлён CUL модуль"
             }
         },
         "title": "CUL/culfw",
@@ -79,6 +86,11 @@
         "type": "iot-systems",
         "authors": [
             "hobbyquaker <hq@ccu.io>"
+        ],
+        "dependencies": [
+            {
+                "js-controller": ">= 2.0.0"
+            }
         ]
     },
     "native": {
