@@ -70,6 +70,10 @@ adapter.on('message', function (obj) {
                 }
 
                 break;
+            case 'send':
+                adapter.log.info('Send command received. Raw data: ' + obj.message.raw);
+                cul.cmd(obj.message.protocol, obj.message.housecode, obj.message.address, obj.message.command);
+                break;
         }
     }
 });
