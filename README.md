@@ -53,3 +53,9 @@ ioBroker adapter to control FS20, Max!, HMS and other devices via [CUL](http://b
 ## License
 
 [Licensed under GPLv2](LICENSE) Copyright (c) 2014-2017 hobbyquaker
+
+## HowTo
+
+### send a command to a FS20 Device in e.g. JavaScript
+```sendTo("cul.0", "send", {"protocol":"FS20", "housecode":"A1B2", "address":"01", "command":"00"});```
+This command uses the CUL Library of this adapter to send the command to a FS20 Device.
