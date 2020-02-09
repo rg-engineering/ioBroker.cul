@@ -71,8 +71,11 @@ adapter.on('message', function (obj) {
 
                 break;
             case 'send':
-                adapter.log.info('Send command received. Raw data: ' + obj.message.raw);
+                adapter.log.debug('Send command - Housecode: ' + obj.message.housecode + '; address: ' + obj.message.address + '; command: ' + obj.message.command);
                 cul.cmd(obj.message.protocol, obj.message.housecode, obj.message.address, obj.message.command);
+                break;
+            default:
+                adapter.log.error('No such command: ' + obj.command);
                 break;
         }
     }
