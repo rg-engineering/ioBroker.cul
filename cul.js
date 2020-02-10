@@ -27,7 +27,24 @@ try {
 }
 
 adapter.on('stateChange', function (id, state) {
-    //if (cul) cul.cmd();
+    if(state.from != "system.adapter." + adapter.namespace) {
+        adapter.log.debug("my namespace: " + adapter.namespace);
+        adapter.log.debug("State Change " + JSON.stringify(id) + " State: " + JSON.stringify(state));
+        //  State Change "cul.0.FS20.123401.cmd" State: {"val":2,"ack":false,"ts":1581365531968,"q":0,"from":"system.adapter.admin.0","user":"system.user.admin","lc":1581365531968}
+        var oAddr = id.split('.');
+        // 0: cul; 1:0; 2:FS20; 3:123401; 4:cmd;
+        var sHousecode = oAddr[3].substring(0,4);
+        var sAddress = oAddr[3].substring(4,6);
+        switch (oAddr[4]) {
+            case "cmdRaw":
+                sendCommand({protocol: oAddr[2], housecode: sHousecode, address: sAddress, command: state.val});
+                break;
+            deafult:
+                adapter.log.error("Write of State " + oAddr[4] + " currently not implemented");
+                break;
+        }
+        
+    }
 });
 
 adapter.on('unload', function (callback) {
@@ -39,6 +56,17 @@ adapter.on('unload', function (callback) {
         }
     }
     callback();
+});
+
+// is called if a subscribed object changes
+adapter.on('objectChange', (id, obj) => {
+    if (obj) {
+        // The object was changed
+        adapter.log.info('object ${id} changed: ${JSON.stringify(obj)}');
+    } else {
+        // The object was deleted
+        adapter.log.info('object ${id} deleted');
+    }
 });
 
 adapter.on('ready', function () {
@@ -68,11 +96,9 @@ adapter.on('message', function (obj) {
                         adapter.sendTo(obj.from, obj.command, [{comName: 'Not available'}], obj.callback);
                     }
                 }
-
                 break;
             case 'send':
-                adapter.log.debug('Send command - Housecode: ' + obj.message.housecode + '; address: ' + obj.message.address + '; command: ' + obj.message.command);
-                cul.cmd(obj.message.protocol, obj.message.housecode, obj.message.address, obj.message.command);
+                sendCommand({protocol: obj.message.protocol, housecode: obj.message.housecode, address: obj.message.address, command: obj.message.command});
                 break;
             default:
                 adapter.log.error('No such command: ' + obj.command);
@@ -80,6 +106,15 @@ adapter.on('message', function (obj) {
         }
     }
 });
+
+/***
+ * Send a command to the cul module
+ * @param {obj.message.protocol, obj.message.housecode, obj.message.address, obj.message.command} 
+ */
+function sendCommand(o) {
+    adapter.log.info('Send command received. Housecode: ' + o.housecode + '; address: ' + o.address + '; command: ' + o.command);
+    cul.cmd(o.protocol, o.housecode, o.address, o.command);
+}
 
 function checkConnection(host, port, timeout, callback) {
         timeout = timeout || 10000; //default 10 seconds
@@ -103,11 +138,11 @@ function checkConnection(host, port, timeout, callback) {
 }
 
 function checkPort(callback) {
-    if (adapter.config.type === 'cuno') {
+    if(adapter.config.type === 'cuno') {
         checkConnection(adapter.config.ip, adapter.config.port, 10000, function(err) {
             if (callback) callback(err);
             callback = null;
-        });
+        })
     } else {
         if (!adapter.config.serialport) {
             if (callback) callback('Port is not selected');
@@ -214,7 +249,7 @@ function connect() {
         host:       adapter.config.ip,
         port:       adapter.config.port,
         debug:      true,
-        logger:     adapter.log.info
+        logger:     adapter.log.debug
     };
 
     cul = new Cul(options);
@@ -288,24 +323,27 @@ function connect() {
 
 }
 
-function insertObjects(objs, cb) {
-    if (objs && objs.length) {
-        var newObject = objs.pop();
+//function insertObjects(objs, cb) {
+//    if (objs && objs.length) {
+//        var newObject = objs.pop();
 
-    } else if (cb) {
-        cb();
-    }
-}
+//    } else if (cb) {
+//        cb();
+//    }
+//}
 
 function main() {
-
-    adapter.getForeignObject('cul.meta.roles', function (err, res) {
+    
+    // in this template all states changes inside the adapters namespace are subscribed
+    adapter.subscribeStates("*");
+    
+    adapter.objects.getObject('cul.meta.roles', function (err, res) {
         metaRoles = res.native;
-        adapter.getObjectView('system', 'device', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
+        adapter.objects.getObjectView('system', 'device', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
             for (var i = 0, l = res.rows.length; i < l; i++) {
                 objects[res.rows[i].id] = res.rows[i].value;
             }
-            adapter.getObjectView('system', 'state', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
+            adapter.objects.getObjectView('system', 'state', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
                 for (var i = 0, l = res.rows.length; i < l; i++) {
                     objects[res.rows[i].id] = res.rows[i].value;
                 }
