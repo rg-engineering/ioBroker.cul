@@ -3,7 +3,7 @@
 /* jslint node: true */
 
 'use strict';
-var Cul = process.env.DEBUG ? require(__dirname + '/lib/debugCul.js') : require('cul');
+var Cul = process.env.DEBUG ? require('./lib/debugCul.js') : require('cul');
 
 // you have to require the utils module and call adapter function
 var utils = require('@iobroker/adapter-core'); // Get common adapter utils
@@ -28,7 +28,7 @@ try {
 }
 
 adapter.on('stateChange', function (id, state) {
-    if (state.from !== 'system.adapter.' + adapter.namespace) {
+    if (!state.ack) {
         adapter.log.debug('State Change ' + JSON.stringify(id) + ', State: ' + JSON.stringify(state));
         //  State Change "cul.0.FS20.123401.cmd" State: {"val":2,"ack":false,"ts":1581365531968,"q":0,"from":"system.adapter.admin.0","user":"system.user.admin","lc":1581365531968}
         var oAddr = id.split('.');
@@ -45,7 +45,6 @@ adapter.on('stateChange', function (id, state) {
                 adapter.log.error('Write of State ' + oAddr[4] + ' currently not implemented');
                 break;
         }
-        
     }
 });
 
@@ -61,7 +60,7 @@ adapter.on('unload', function (callback) {
 });
 
 adapter.on('ready', function () {
-    adapter.setState('info.connection', false, false);
+    adapter.setState('info.connection', false, true);
     
     checkPort(function (err) {
         if (!err || process.env.DEBUG) {
@@ -234,7 +233,7 @@ function setStates(obj) {
         }
         tasks.push({type: 'state', id: oid, val: val});
     }
-    if (isStart) processTasks();
+    isStart && processTasks();
 }
 
 function connect() {
