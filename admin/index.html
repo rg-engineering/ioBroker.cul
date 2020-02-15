@@ -21,13 +21,14 @@
             "de": "CUL Adapter Einstellungen",
             "ru": "Настройки CUL Драйвера"
         },
-        "Serial port:":     {"en": "Serial port:",      "de": "Serialport:",    "ru": "Порт:"},
-        "Baud rate":        {"en": "Baud rate:",        "de": "Baud rate:",     "ru": "Скорость:"},
-        "Mode":             {"en": "Mode",              "de": "Modus:",         "ru": "Режим:"},
-        "Type:":            {"en": "Type:",             "de": "Typ:",           "ru": "Тип:"},
-        "Select port":      {"en": "Select port",       "de": "Port auswählen", "ru": "Select port"},
-        "IP/Hostname:":     {"en": "IP/Hostname:",      "de": "IP/Hostname:",   "ru": "IP/Hostname:"},
-        "Port":             {"en": "Port:",             "de": "Port:",          "ru": "Port:"}
+        "Serial port:":     {"en": "Serial port:",      "de": "Serialport:",        "ru": "Порт:"},
+        "Baud rate":        {"en": "Baud rate:",        "de": "Baud rate:",         "ru": "Скорость:"},
+        "Mode":             {"en": "Mode",              "de": "Modus:",             "ru": "Режим:"},
+        "Type:":            {"en": "Type:",             "de": "Typ:",               "ru": "Тип:"},
+        "Select port":      {"en": "Select port",       "de": "Port auswählen",     "ru": "Select port"},
+        "IP/Hostname:":     {"en": "IP/Hostname:",      "de": "IP/Hostname:",       "ru": "IP/Hostname:"},
+        "Port":             {"en": "Port:",             "de": "Port:",              "ru": "Port:"},
+        "Experimental:":    {"en": "Experimental:",     "de": "Experimentiermodus:","ru": "экспериментальный:"},
     };
 
     var timeout;
@@ -179,13 +180,16 @@
 
         <tr>
             <td><label for="ip" class="translate">IP/Hostname:</label></td>
-	    <td><input id="ip" class="value" value="127.0.0.1"></input></td>
+	        <td><input id="ip" class="value" value="127.0.0.1"></input></td>
         </tr>
-	<tr>
+	    <tr>
             <td><label for="port" class="translate">Port:</label></td>
-	    <td><input id="port" class="value" value="23"></input></td>
+	        <td><input id="port" class="value" value="23"></input></td>
         </tr>
-
+        <tr>
+            <td><label for="experimental" class="translate">Experimental:</label></td>
+            <td><input id="experimental" class="value" type="checkbox" value="true" /></td>
+        </tr>
     </table>
 
 </div>

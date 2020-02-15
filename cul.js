@@ -35,15 +35,18 @@ adapter.on('stateChange', function (id, state) {
         // 0: cul; 1:0; 2:FS20; 3:123401; 4:cmd;
         var sHousecode = oAddr[3].substring(0, 4);
         var sAddress   = oAddr[3].substring(4, 6);
-        
-        switch (oAddr[4]) {
-            case 'cmdRaw':
-                sendCommand({protocol: oAddr[2], housecode: sHousecode, address: sAddress, command: state.val});
-                break;
-                
-            deafult:
-                adapter.log.error('Write of State ' + oAddr[4] + ' currently not implemented');
-                break;
+        if(oAddr[2] == "FS20" || adapter.config.experimental === true) {
+            switch (oAddr[4]) {
+                case 'cmdRaw':
+                    sendCommand({protocol: oAddr[2], housecode: sHousecode, address: sAddress, command: state.val});
+                    break;
+                    
+                deafult:
+                    adapter.log.error('Write of State ' + oAddr[4] + ' currently not implemented');
+                    break;
+            }
+        } else {
+            dapter.log.error('Only FS20 Devices are tested. Please contribute here: https://github.com/ioBroker/ioBroker.cul');
         }
     }
 });
