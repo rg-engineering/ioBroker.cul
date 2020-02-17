@@ -1,8 +1,9 @@
-/* jshint -W097 */// jshint strict:false
-/*jslint node: true */
+/* jshint -W097 */
+/* jshint strict: false */
+/* jslint node: true */
 
 'use strict';
-var Cul = process.env.DEBUG ? require(__dirname + '/lib/debugCul.js') : require('cul');
+var Cul = process.env.DEBUG ? require('./lib/debugCul.js') : require('cul');
 
 // you have to require the utils module and call adapter function
 var utils = require('@iobroker/adapter-core'); // Get common adapter utils
@@ -27,7 +28,27 @@ try {
 }
 
 adapter.on('stateChange', function (id, state) {
-    //if (cul) cul.cmd();
+    if (!state.ack) {
+        adapter.log.debug('State Change ' + JSON.stringify(id) + ', State: ' + JSON.stringify(state));
+        //  State Change "cul.0.FS20.123401.cmd" State: {"val":2,"ack":false,"ts":1581365531968,"q":0,"from":"system.adapter.admin.0","user":"system.user.admin","lc":1581365531968}
+        var oAddr = id.split('.');
+        // 0: cul; 1:0; 2:FS20; 3:123401; 4:cmd;
+        var sHousecode = oAddr[3].substring(0, 4);
+        var sAddress   = oAddr[3].substring(4, 6);
+        if (oAddr[2] === 'FS20' || adapter.config.experimental === true || adapter.config.experimental === 'true') {
+            switch (oAddr[4]) {
+                case 'cmdRaw':
+                    sendCommand({protocol: oAddr[2], housecode: sHousecode, address: sAddress, command: state.val});
+                    break;
+                    
+                deafult:
+                    adapter.log.error('Write of State ' + oAddr[4] + ' currently not implemented');
+                    break;
+            }
+        } else {
+            dapter.log.error('Only FS20 Devices are tested. Please contribute here: https://github.com/ioBroker/ioBroker.cul');
+        }
+    }
 });
 
 adapter.on('unload', function (callback) {
@@ -42,7 +63,8 @@ adapter.on('unload', function (callback) {
 });
 
 adapter.on('ready', function () {
-    adapter.setState('info.connection', false, false);
+    adapter.setState('info.connection', false, true);
+    
     checkPort(function (err) {
         if (!err || process.env.DEBUG) {
             main();
@@ -68,25 +90,44 @@ adapter.on('message', function (obj) {
                         adapter.sendTo(obj.from, obj.command, [{comName: 'Not available'}], obj.callback);
                     }
                 }
-
+                break;
+                
+            case 'send':
+                sendCommand({protocol: obj.message.protocol, housecode: obj.message.housecode, address: obj.message.address, command: obj.message.command});
+                break;
+                
+            default:
+                adapter.log.error('No such command: ' + obj.command);
                 break;
         }
     }
 });
 
+/***
+ * Send a command to the cul module
+ * @param {obj.message.protocol, obj.message.housecode, obj.message.address, obj.message.command} 
+ */
+function sendCommand(o) {
+    adapter.log.info('Send command received. Housecode: ' + o.housecode + '; address: ' + o.address + '; command: ' + o.command);
+    cul.cmd(o.protocol, o.housecode, o.address, o.command);
+}
+
 function checkConnection(host, port, timeout, callback) {
         timeout = timeout || 10000; //default 10 seconds
+    
         var timer = setTimeout(function() {
             socket.end();
-            callback("Timeout");
+            callback('Timeout');
             callback = null;
         }, timeout);
+    
         var socket = Net.createConnection(port, host, function() {
             clearTimeout(timer);
             socket.end();
             callback(null);
             callback = null;
         });
+    
         socket.on('error', function(err) {
             clearTimeout(timer);
             socket.end();
@@ -98,12 +139,12 @@ function checkConnection(host, port, timeout, callback) {
 function checkPort(callback) {
     if (adapter.config.type === 'cuno') {
         checkConnection(adapter.config.ip, adapter.config.port, 10000, function(err) {
-            if (callback) callback(err);
+            callback && callback(err);
             callback = null;
         });
     } else {
         if (!adapter.config.serialport) {
-            if (callback) callback('Port is not selected');
+            callback && callback('Port is not selected');
             return;
         }
         var sPort;
@@ -114,24 +155,23 @@ function checkPort(callback) {
             });
             sPort.on('error', function (err) {
                 if (sPort.isOpen) sPort.close();
-                if (callback) callback(err);
+                callback && callback(err);
                 callback = null;
             });
 
             sPort.open(function (err) {
-                if (sPort.isOpen) sPort.close();
-
-                if (callback) callback(err);
+                sPort.isOpen && sPort.close();
+                callback && callback(err);
                 callback = null;
             });
         } catch (e) {
             adapter.log.error('Cannot open port: ' + e);
             try {
-                if (sPort.isOpen) sPort.close();
+                sPort.isOpen && sPort.close();
             } catch (ee) {
 
             }
-            if (callback) callback(e);
+            callback && callback(e);
         }
     }
 }
@@ -141,6 +181,7 @@ var tasks = [];
 function processTasks() {
     if (tasks.length) {
         var task = tasks.shift();
+        
         if (task.type === 'state') {
             adapter.setForeignState(task.id, task.val, true, function () {
                 setTimeout(processTasks, 0);
@@ -178,7 +219,9 @@ function setStates(obj) {
     var isStart = !tasks.length;
 
     for (var state in obj.data) {
-        if (!obj.data.hasOwnProperty(state)) continue;
+        if (!obj.data.hasOwnProperty(state)) {
+            continue;
+        }
         var oid  = adapter.namespace + '.' + id + '.' + state;
         var meta = objects[oid];
         var val  = obj.data[state];
@@ -193,7 +236,7 @@ function setStates(obj) {
         }
         tasks.push({type: 'state', id: oid, val: val});
     }
-    if (isStart) processTasks();
+    isStart && processTasks();
 }
 
 function connect() {
@@ -207,7 +250,7 @@ function connect() {
         host:       adapter.config.ip,
         port:       adapter.config.port,
         debug:      true,
-        logger:     adapter.log.info
+        logger:     adapter.log.debug
     };
 
     cul = new Cul(options);
@@ -276,22 +319,16 @@ function connect() {
         }
 
         setStates(obj);
-        if (isStart) processTasks();
+        isStart && processTasks();
     });
 
 }
 
-function insertObjects(objs, cb) {
-    if (objs && objs.length) {
-        var newObject = objs.pop();
-
-    } else if (cb) {
-        cb();
-    }
-}
-
 function main() {
-
+    
+    // in this template all states changes inside the adapters namespace are subscribed
+    adapter.subscribeStates('*');
+    
     adapter.getForeignObject('cul.meta.roles', function (err, res) {
         metaRoles = res.native;
         adapter.getObjectView('system', 'device', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, function (err, res) {
