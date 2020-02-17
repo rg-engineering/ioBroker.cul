@@ -35,7 +35,7 @@ adapter.on('stateChange', function (id, state) {
         // 0: cul; 1:0; 2:FS20; 3:123401; 4:cmd;
         var sHousecode = oAddr[3].substring(0, 4);
         var sAddress   = oAddr[3].substring(4, 6);
-        if(oAddr[2] == "FS20" || adapter.config.experimental === true) {
+        if (oAddr[2] === 'FS20' || adapter.config.experimental === true || adapter.config.experimental === 'true') {
             switch (oAddr[4]) {
                 case 'cmdRaw':
                     sendCommand({protocol: oAddr[2], housecode: sHousecode, address: sAddress, command: state.val});
