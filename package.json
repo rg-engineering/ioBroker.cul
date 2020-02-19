@@ -9,12 +9,6 @@
   ],
   "homepage": "https://github.com/ioBroker/ioBroker.cul",
   "license": "GPL-2.0",
-  "licenses": [
-    {
-      "type": "GPL-2.0",
-      "url": "https://raw.githubusercontent.com/ioBroker/ioBroker.cul/master/LICENSE"
-    }
-  ],
   "keywords": [
     "ioBroker",
     "cul stick",
@@ -25,23 +19,19 @@
     "url": "https://github.com/ioBroker/ioBroker.cul"
   },
   "dependencies": {
-    "cul": "^0.12.0",
+    "cul": "^0.13.0",
     "serialport": "^7.1.5",
     "@iobroker/adapter-core": "^2.0.0"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-replace": "^1.0.1",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-jscs": "^3.0.1",
-    "grunt-http": "^2.2.0",
-    "mocha": "^4.1.0",
-    "chai": "^4.1.2"
+    "gulp": "^4.0.2",
+    "mocha": "^7.0.1",
+    "chai": "^4.2.0"
   },
   "bugs": {
     "url": "https://github.com/ioBroker/ioBroker.cul/issues"
   },
-  "main": "cul.js",
+  "main": "main.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha --exit"
   }

@@ -3,7 +3,7 @@
 /* jslint node: true */
 
 'use strict';
-var Cul = process.env.DEBUG ? require('./lib/debugCul.js') : require('cul');
+var Main = process.env.DEBUG ? require('./lib/debugCul.js') : require('main');
 
 // you have to require the utils module and call adapter function
 var utils = require('@iobroker/adapter-core'); // Get common adapter utils
@@ -253,7 +253,7 @@ function connect() {
         logger:     adapter.log.debug
     };
 
-    cul = new Cul(options);
+    cul = new Main(options);
 
     cul.on('close', function () {
         adapter.setState('info.connection', false, true);
