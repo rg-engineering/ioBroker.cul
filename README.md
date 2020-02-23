@@ -26,8 +26,9 @@ ioBroker adapter to control FS20, Max!, HMS and other devices via [CUL](http://b
 This command uses the CUL Library of this adapter to send the command to a FS20 Device.
 
 ## Changelog
-### 1.1.1 (2020-02-10)
+### 1.2.0 (2020-02-10)
 * (MK-2001) Sending of FS20 cmdRAW possible or via sendTo as described in the readme
+* (Bluefox) Refactoring
 
 ### 1.1.0 (2020-01-04)
 * (foxriver76) removed usage of adapter.objects

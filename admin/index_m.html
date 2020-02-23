@@ -1,0 +1,186 @@
+<html>
+<head>
+    <!-- Materialze style -->
+    <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+    <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+
+    <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+
+    <script type="text/javascript" src="../../js/translate.js"></script>
+    <script type="text/javascript" src="../../lib/js/materialize.js"></script>
+    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
+    <script type="text/javascript" src="words.js"></script>
+
+<script type="text/javascript">
+    var timeout;
+    var count;
+    var gOnChange;
+
+    function getComPorts(actualValue) {
+        count++;
+        if (count < 10) {
+            timeout = setTimeout(function () {
+                getComPorts(actualValue);
+            }, 2000);
+        }
+
+        sendTo(null, 'listUart', null, function (list) {
+            if (timeout) {
+                clearTimeout(timeout);
+                timeout = null;
+            }
+            if ((!list || !list.length) && count < 10) {
+                setTimeout(function () {
+                    getComPorts(actualValue);
+                }, 1000);
+                return;
+            }
+            if (!list || !list.length) {
+                $('#_serialport').html('<input id="serialport" type="text" class="value" value="' + actualValue + '" placeholder="' + _('Not ports found') + '"/><label  class="translate" for="serialport">Serial port</label>');
+                $('#serialport').change(gOnChange).on('keyup', gOnChange);
+                M.updateTextFields();
+            } else {
+                var text = '<option value="">' + _('Select port') + '</option>';
+                var $serialport = $('#serialport');
+
+                for (var j = 0; j < list.length; j++) {
+                    if (list[j].comName === 'Not available') {
+                        text += '<option value="" selected>' + _('Not available') + '</option>';
+                        $serialport.prop('disabled', true);
+                        break;
+                    } else {
+                        text += '<option value="' + list[j].comName + '" ' + ((actualValue === list[j].comName) ? 'selected' : '') + '>' + list[j].comName + '</option>';
+                    }
+                }
+                $serialport.html(text).select();
+            }
+        });
+    }
+
+    function load(settings, onChange) {
+        settings.type = settings.type || 'cul';
+        gOnChange = onChange;
+
+        for (var key in settings) {
+            if (!settings.hasOwnProperty(key)) continue;
+            var $value = $('#' + key + '.value');
+            // example: select elements with id=key and class=value and insert value
+            if ($value.attr('type') === 'checkbox') {
+                $value.prop('checked', settings[key]).on('change', function () {
+                    onChange();
+                });
+            } else {
+                $value.val(settings[key]).on('change', function () {
+                    var id = $(this).attr('id');
+                    if (id === 'type') {
+                        if ($(this).val() === 'cul') {
+                            $('#baudrate').val('9600');
+                        } else {
+                            $('#baudrate').val('38400');
+                        }
+                    }
+                    onChange();
+                }).on('keyup', onChange);
+            }
+        }
+
+        getIsAdapterAlive(function (isAlive) {
+            if (isAlive || common.enabled) {
+                getComPorts(settings.serialport);
+            } else {
+                $('#_serialport').html('<input id="serialport" type="text" class="value" value="' + settings.serialport + '"/><label  class="translate" for="serialport">Serial port</label>');
+                $('#serialport').change(onChange).on('keyup', onChange);
+                M.updateTextFields();
+            }
+        });
+
+        // Signal to admin, that no changes yet
+        onChange(false);
+    }
+
+    function save(callback) {
+        var obj = {};
+        $('.value').each(function () {
+            var $this = $(this);
+            if ($this.attr('type') === 'checkbox') {
+                obj[$this.attr('id')] = $this.prop('checked');
+            } else {
+                obj[$this.attr('id')] = $this.val();
+            }
+        });
+        callback(obj);
+    }
+</script>
+</head>
+<body>
+<div class="m adapter-container">
+    <div class="row">
+        <div class="row">
+            <div class="col s12 m4 l2">
+                <img src="busware.jpg" alt="logo" class="logo"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s10 m4" id="_serialport">
+                <select id="serialport" class="value"></select>
+                <label  class="translate" for="serialport">Serial port</label>
+            </div>
+            <div class="input-field col s10 m2">
+                <select id="baudrate"   class="value">
+                    <option value="110">110</option>
+                    <option value="150">150</option>
+                    <option value="300">300</option>
+                    <option value="600">600</option>
+                    <option value="1200">1200</option>
+                    <option value="2400">2400</option>
+                    <option value="4800">4800</option>
+                    <option value="9600">9600</option>
+                    <option value="19200">19200</option>
+                    <option value="38400">38400</option>
+                    <option value="56000">56000</option>
+                    <option value="57600">57600</option>
+                    <option value="115200">115200</option>
+                </select>
+                <label  class="translate" for="baudrate">Baud rate</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s10 m4">
+                <select id="mode" class="value">
+                    <option value="SlowRF">SlowRF - (FS20, HMS, FHT, EM, ESA, ...)</option>
+                    <option value="MORITZ">MORITZ - (MAX! devices)</option>
+                    <option value="AskSin">AskSin - (HomeMatic devices)</option>
+                </select>
+                <label  class="translate" for="mode">Mode</label>
+            </div>
+            <div class="input-field col s10 m2">
+                <select id="type" class="value">
+                    <option value="cul">CUL</option>
+                    <option value="coc">COC</option>
+                    <option value="scc">SCC</option>
+                    <option value="cuno">CUNO</option>
+                </select>
+                <label  class="translate" for="type">Type</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 m4">
+                <input id="ip" class="value" value="127.0.0.1" type="text"/>
+                <label  class="translate" for="ip">IP/Hostname</label>
+            </div>
+            <div class="input-field col s4 m2">
+                <input id="port" class="value" value="23" type="number" min="1" max="65536"/>
+                <label class="translate" for="port">Port</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s10 m4">
+                <input id="experimental" class="value" type="checkbox"/>
+                <span  class="translate" for="experimental">Experimental</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

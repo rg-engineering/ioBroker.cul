@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "cul",
-        "version": "1.1.1",
+        "version": "1.2.0",
         "news": {
-            "1.1.1": {
+            "1.2.0": {
 			  "en": "Sending of FS20 cmdRAW possible or via sendTo as described in the readme.",
 			  "de": "Senden von FS20 cmdRAW möglich oder über sendTo wie in der Readme beschrieben.",
 			  "ru": "Отправка FS20 cmdRAW возможна или через sendTo, как описано в файле readme.",
@@ -79,6 +79,8 @@
         "license": "GPL-2.0",
         "enabled": true,
         "messagebox": true,
+        "materialize": true,
+        "compact": true,
         "icon": "busware.jpg",
         "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.cul/master/admin/busware.jpg",
         "keywords": [
