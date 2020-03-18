@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "cul",
-        "version": "1.2.0",
+        "version": "1.2.1",
         "news": {
+            "1.2.1": {
+                "en": "Changed license from non SPDX conform \"GPL-2.0\" to \"GPL-2.0-or-later\"",
+                "de": "Die Lizenz wurde von Nicht-SPDX-konformem \"GPL-2.0\" zu \"GPL-2.0-oder höher\" geändert.",
+                "ru": "Изменена лицензия с не SPDX, соответствующего «GPL-2.0» на «GPL-2.0 или более поздняя»",
+                "pt": "Licença alterada de \"GPL-2.0\" não compatível com SPDX para \"GPL-2.0-or-later\"",
+                "nl": "Licentie gewijzigd van niet-SPDX-conform \"GPL-2.0\" naar \"GPL-2.0-of-later\"",
+                "fr": "Changement de licence de «GPL-2.0» non conforme SPDX à «GPL-2.0 ou version ultérieure»",
+                "it": "Licenza modificata da non SPDX conforme \"GPL-2.0\" a \"GPL-2.0-o-successiva\"",
+                "es": "Se cambió la licencia de no compatible con SPDX \"GPL-2.0\" a \"GPL-2.0-or-later\"",
+                "pl": "Zmieniono licencję z „GPL-2.0” niezgodnej z SPDX na „GPL-2.0-or-later”",
+                "zh-cn": "将许可证从不符合SPDX的“ GPL-2.0”更改为“ GPL-2.0或更高版本”"
+            },
             "1.2.0": {
 			  "en": "Sending of FS20 cmdRAW possible or via sendTo as described in the readme.",
 			  "de": "Senden von FS20 cmdRAW möglich oder über sendTo wie in der Readme beschrieben.",
@@ -49,34 +61,25 @@
                 "it": "Ottimizzazioni per nanoCul, supporto per dispositivi ESA",
                 "es": "Optimizaciones para nanoCul, Soporte para dispositivos ESA",
                 "pl": "Optymalizacje dla nanoCul, Obsługa urządzeń ESA"
-            },
-            "0.3.0": {
-                "en": "Upgrade Serialport and cul library",
-                "de": "Serialport und cul Bibliotheken aktualisiert",
-                "ru": "Upgrade Serialport and cul library"
-            },
-            "0.2.2": {
-                "en": "use new npm cul module",
-                "de": "Benutze neues cul npm Modul",
-                "ru": "Новый npm пакет cul"
-            },
-            "0.2.0": {
-                "en": "Add raw data state",
-                "de": "Raw Data Zustand hizugefügt",
-                "ru": "Добавлено состояние для raw данных"
-            },
-            "0.1.1": {
-                "en": "Use newer version of cul module",
-                "de": "Benutze neue Version von cul Modul",
-                "ru": "Используется новая версия cul модуля"
             }
         },
         "title": "CUL/culfw",
-        "desc": "Javascript/Node.js based Busware CUL USB / culfw adapter",
+        "desc": {
+            "en": "Javascript/Node.js based Busware CUL USB/culfw adapter",
+            "de": "Javascript/Node.js basierter Busware CUL USB/Culfw Adapter",
+            "ru": "Адаптер Busware CUL USB/culfw",
+            "pt": "Adaptador Bus/CUL USB/culfw baseado em Javascript/Node.js",
+            "nl": "Op Javascript/Node.js gebaseerde Busware CUL USB/culfw-adapter",
+            "fr": "Adaptateur USB/culfw Busware CUL basé sur Javascript/Node.js",
+            "it": "Adattatore Bus/Culfw CUL basato su Javascript/Node.js",
+            "es": "Adaptador USB/culfw Busware CUL basado en Javascript/Node.js",
+            "pl": "Adapter Busware CUL USB/culfw oparty na Javascript/Node.js",
+            "zh-cn": "基于Javascript/Node.js的Busware CUL USB/culfw适配器"
+        },
         "platform": "javascript/Node.js",
         "mode": "daemon",
         "loglevel": "info",
-        "license": "GPL-2.0",
+        "license": "GPL-2.0-or-later",
         "enabled": true,
         "messagebox": true,
         "materialize": true,
