@@ -1,38 +1,38 @@
 {
-  "name": "iobroker.cul",
-  "version": "1.2.1",
-  "description": "Javascript/Node.js based Busware CUL USB / culfw adapter",
-  "author": "hobbyquaker <hq@ccu.io>",
-  "contributors": [
-    "hobbyquaker <hq@ccu.io>",
-    "bluefox <dogafox@gmail.com>"
-  ],
-  "homepage": "https://github.com/ioBroker/ioBroker.cul",
-  "license": "GPL-2.0-or-later",
-  "keywords": [
-    "ioBroker",
-    "cul stick",
-    "home automation"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ioBroker/ioBroker.cul"
-  },
-  "dependencies": {
-    "cul": "^0.13.0",
-    "serialport": "^7.1.5",
-    "@iobroker/adapter-core": "^2.2.1"
-  },
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "mocha": "^7.0.1",
-    "chai": "^4.2.0"
-  },
-  "bugs": {
-    "url": "https://github.com/ioBroker/ioBroker.cul/issues"
-  },
-  "main": "main.js",
-  "scripts": {
-    "test": "node node_modules/mocha/bin/mocha --exit"
-  }
+    "name": "iobroker.cul",
+    "version": "1.2.2",
+    "description": "Javascript/Node.js based Busware CUL USB / culfw adapter",
+    "author": "hobbyquaker <hq@ccu.io>",
+    "contributors": [
+        "hobbyquaker <hq@ccu.io>",
+        "bluefox <dogafox@gmail.com>"
+    ],
+    "homepage": "https://github.com/ioBroker/ioBroker.cul",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "ioBroker",
+        "cul stick",
+        "home automation"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ioBroker/ioBroker.cul"
+    },
+    "dependencies": {
+        "cul": "^0.13.0",
+        "serialport": "^8.0.7",
+        "@iobroker/adapter-core": "^2.3.1"
+    },
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "mocha": "^7.1.2",
+        "chai": "^4.2.0"
+    },
+    "bugs": {
+        "url": "https://github.com/ioBroker/ioBroker.cul/issues"
+    },
+    "main": "main.js",
+    "scripts": {
+        "test": "node node_modules/mocha/bin/mocha --exit"
+    }
 }

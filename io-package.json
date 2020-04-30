@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "cul",
-        "version": "1.2.1",
+        "version": "1.2.2",
         "news": {
+            "1.2.2": {
+                "en": "dependencies/Serialport updated",
+                "de": "Abhängigkeiten / Serialport aktualisiert",
+                "ru": "зависимости / Serialport обновлен",
+                "pt": "dependências / Serialport atualizado",
+                "nl": "afhankelijkheden / seriële poort bijgewerkt",
+                "fr": "dépendances / Serialport mis à jour",
+                "it": "dipendenze / Serialport aggiornati",
+                "es": "dependencias / Serialport actualizado",
+                "pl": "zależności / zaktualizowano Serialport",
+                "zh-cn": "依赖项/串行端口已更新"
+            },
             "1.2.1": {
                 "en": "Changed license from non SPDX conform \"GPL-2.0\" to \"GPL-2.0-or-later\"",
                 "de": "Die Lizenz wurde von Nicht-SPDX-konformem \"GPL-2.0\" zu \"GPL-2.0-oder höher\" geändert.",
@@ -16,17 +28,17 @@
                 "zh-cn": "将许可证从不符合SPDX的“ GPL-2.0”更改为“ GPL-2.0或更高版本”"
             },
             "1.2.0": {
-			  "en": "Sending of FS20 cmdRAW possible or via sendTo as described in the readme.",
-			  "de": "Senden von FS20 cmdRAW möglich oder über sendTo wie in der Readme beschrieben.",
-			  "ru": "Отправка FS20 cmdRAW возможна или через sendTo, как описано в файле readme.",
-			  "pt": "É possível enviar FS20 cmdRAW ou via sendTo, conforme descrito no leia-me.",
-			  "nl": "Verzenden van FS20 cmdRAW mogelijk of via sendTo zoals beschreven in de readme.",
-			  "fr": "Envoi de FS20 cmdRAW possible ou via sendTo comme décrit dans le readme.",
-			  "it": "Invio di cmdRAW FS20 possibile o tramite sendTo come descritto nel file Leggimi.",
-			  "es": "Se puede enviar FS20 cmdRAW o mediante sendTo como se describe en el archivo Léame.",
-			  "pl": "Wysyłanie FS20 cmdRAW jest możliwe lub poprzez sendTo zgodnie z opisem w pliku Readme.",
-			  "zh-cn": "可以发送FS20 cmdRAW，也可以按照自述文件中的说明发送sendTo。"
-			},
+                "en": "Sending of FS20 cmdRAW possible or via sendTo as described in the readme.",
+                "de": "Senden von FS20 cmdRAW möglich oder über sendTo wie in der Readme beschrieben.",
+                "ru": "Отправка FS20 cmdRAW возможна или через sendTo, как описано в файле readme.",
+                "pt": "É possível enviar FS20 cmdRAW ou via sendTo, conforme descrito no leia-me.",
+                "nl": "Verzenden van FS20 cmdRAW mogelijk of via sendTo zoals beschreven in de readme.",
+                "fr": "Envoi de FS20 cmdRAW possible ou via sendTo comme décrit dans le readme.",
+                "it": "Invio di cmdRAW FS20 possibile o tramite sendTo come descritto nel file Leggimi.",
+                "es": "Se puede enviar FS20 cmdRAW o mediante sendTo como se describe en el archivo Léame.",
+                "pl": "Wysyłanie FS20 cmdRAW jest możliwe lub poprzez sendTo zgodnie z opisem w pliku Readme.",
+                "zh-cn": "可以发送FS20 cmdRAW，也可以按照自述文件中的说明发送sendTo。"
+            },
             "1.1.0": {
                 "en": "removed usage of adapter.objects",
                 "de": "Verwendung von adapter.objects entfernt",
@@ -115,8 +127,8 @@
         "baudrate": 9600,
         "mode": "SlowRF",
         "type": "cul",
-	    "ip": "127.0.0.1",
-	    "port": "23"
+        "ip": "127.0.0.1",
+        "port": "23"
     },
     "objects": [
         {

@@ -18,11 +18,6 @@ let connectTimeout;
 let checkConnectionTimer;
 
 try {
-    SerialPort = require('serialport');//.SerialPort;
-} catch (e) {
-    console.warn('Serial port is not available');
-}
-try {
     Net = require('net');
 } catch (e) {
     console.warn('Net is not available');
@@ -78,6 +73,17 @@ function startAdapter(options) {
     });
 
     adapter.on('ready', () => {
+
+        try {
+            SerialPort = require('serialport');//.SerialPort;
+        } catch (err) {
+            console.warn('Serial port is not available');
+            if (adapter.supportsFeature && !adapter.supportsFeature('CONTROLLER_NPM_AUTO_REBUILD')) {
+                // re throw error to allow rebuild of serialport in js-controler 3.0.18+
+                throw err;
+            }
+        }
+
         adapter.setState('info.connection', false, true);
 
         checkPort(err => {
