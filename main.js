@@ -102,9 +102,12 @@ function startAdapter(options) {
                     if (obj.callback) {
                         if (SerialPort) {
                             // read all found serial ports
-                            SerialPort.list((err, ports) => {
+                            SerialPort.list().then(ports => {
                                 adapter.log.info('List of port: ' + JSON.stringify(ports));
                                 adapter.sendTo(obj.from, obj.command, ports, obj.callback);
+                            }).catch(err => {
+                                adapter.log.warn('Can not get Serial port list: ' + err);
+                                adapter.sendTo(obj.from, obj.command, [{path: 'Not available'}], obj.callback);
                             });
                         } else {
                             adapter.log.warn('Module serialport is not available');
