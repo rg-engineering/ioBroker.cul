@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "cul",
-        "version": "1.2.2",
+        "version": "1.3.0",
         "news": {
+            "1.3.0": {
+                "en": "Really update dependencies and Serialport",
+                "de": "Aktualisieren Sie wirklich Abhängigkeiten und Serialport",
+                "ru": "Действительно обновить зависимости и Serialport",
+                "pt": "Atualize realmente dependências e Serialport",
+                "nl": "Werk afhankelijkheden en seriële poort echt bij",
+                "fr": "Vraiment mettre à jour les dépendances et Serialport",
+                "it": "Aggiorna davvero le dipendenze e Serialport",
+                "es": "Realmente actualice las dependencias y Serialport",
+                "pl": "Naprawdę aktualizuj zależności i port szeregowy",
+                "zh-cn": "真正更新依赖项和Serialport"
+            },
             "1.2.2": {
                 "en": "dependencies/Serialport updated",
                 "de": "Abhängigkeiten / Serialport aktualisiert",

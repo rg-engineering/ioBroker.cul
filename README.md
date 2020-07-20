@@ -29,6 +29,10 @@ This command uses the CUL Library of this adapter to send the command to a FS20 
 Javascript/Node.js based Busware CUL USB / culfw adapter
 
 ## Changelog
+
+### 1.3.0 (2020-07-20)
+* (Apollon77) Really update dependencies and Serialport
+
 ### 1.2.2 (2020-04-30)
 * (Apollon77) Update dependencies/Serialport 
 
