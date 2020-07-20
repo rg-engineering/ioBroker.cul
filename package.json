@@ -19,13 +19,14 @@
         "url": "https://github.com/ioBroker/ioBroker.cul"
     },
     "dependencies": {
-        "cul": "^0.13.0",
-        "serialport": "^8.0.7",
-        "@iobroker/adapter-core": "^2.3.1"
+        "cul": "^0.14.0",
+        "serialport": "^9.0.0",
+        "@iobroker/adapter-core": "^2.4.0"
     },
     "devDependencies": {
+        "@alcalzone/release-script": "^1.4.1",
         "gulp": "^4.0.2",
-        "mocha": "^7.1.2",
+        "mocha": "^8.0.1",
         "chai": "^4.2.0"
     },
     "bugs": {
@@ -33,6 +34,7 @@
     },
     "main": "main.js",
     "scripts": {
-        "test": "node node_modules/mocha/bin/mocha --exit"
+        "test": "node node_modules/mocha/bin/mocha --exit",
+        "release": "release-script"
     }
 }

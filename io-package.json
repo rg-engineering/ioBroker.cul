@@ -120,7 +120,12 @@
             {
                 "js-controller": ">= 2.0.0"
             }
-        ]
+        ],
+        "plugins": {
+            "sentry": {
+                "dsn": "https://1df51a90ee094b88983dc43d700a5066@sentry.iobroker.net/89"
+            }
+        }
     },
     "native": {
         "serialport": "",
