@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "cul",
-        "version": "1.3.0",
+        "version": "1.3.1",
         "news": {
+            "1.3.1": {
+                "en": "make sure connection check do not crash adapter (Sentry IOBROKER-CUL-3)\ncrashes preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+                "de": "Stellen Sie sicher, dass die Verbindungsprüfung den Adapter nicht zum Absturz bringt (Sentry IOBROKER-CUL-3).\nAbstürze verhindert (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+                "ru": "убедитесь, что проверка соединения не дает сбой адаптеру (Sentry IOBROKER-CUL-3)\nпредотвращены сбои (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+                "pt": "verifique se a verificação da conexão não está travando o adaptador (Sentry IOBROKER-CUL-3)\nprevenção de falhas (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+                "nl": "zorg ervoor dat de verbindingscontrole de adapter niet crasht (Sentry IOBROKER-CUL-3)\ncrashes voorkomen (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+                "fr": "assurez-vous que la vérification de la connexion ne plante pas l'adaptateur (Sentry IOBROKER-CUL-3)\nplantages évités (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+                "it": "assicurarsi che il controllo della connessione non arresti in modo anomalo l'adattatore (Sentry IOBROKER-CUL-3)\ncrash preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+                "es": "asegúrese de que la comprobación de conexión no bloquee el adaptador (Sentry IOBROKER-CUL-3)\naccidentes previstos (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+                "pl": "upewnij się, że sprawdzenie połączenia nie powoduje awarii adaptera (Sentry IOBROKER-CUL-3)\nzapobiega awariom (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+                "zh-cn": "确保连接检查不会使适配器崩溃（Sentry IOBROKER-CUL-3）\n防止崩溃（哨兵IOBROKER-CUL-5，IOBROKER-CUL-8）"
+            },
             "1.3.0": {
                 "en": "Really update dependencies and Serialport",
                 "de": "Aktualisieren Sie wirklich Abhängigkeiten und Serialport",
