@@ -31,7 +31,7 @@ function startAdapter(options) {
     adapter = new utils.Adapter(options);
 
     adapter.on('stateChange', (id, state) => {
-        if (!state.ack) {
+        if (state && !state.ack) {
             adapter.log.debug('State Change ' + JSON.stringify(id) + ', State: ' + JSON.stringify(state));
             //  State Change "cul.0.FS20.123401.cmd" State: {"val":2,"ack":false,"ts":1581365531968,"q":0,"from":"system.adapter.admin.0","user":"system.user.admin","lc":1581365531968}
             const oAddr = id.split('.');
@@ -150,7 +150,7 @@ function checkConnection(host, port, timeout, callback) {
     checkConnectionTimer = setTimeout(() => {
         checkConnectionTimer = null;
         socket.end();
-        callback('Timeout');
+        callback && callback('Timeout');
         callback = null;
     }, timeout);
 
@@ -158,7 +158,7 @@ function checkConnection(host, port, timeout, callback) {
         checkConnectionTimer && clearTimeout(checkConnectionTimer);
         checkConnectionTimer = null;
         socket.end();
-        callback(null);
+        callback && callback(null);
         callback = null;
     });
 
@@ -166,7 +166,7 @@ function checkConnection(host, port, timeout, callback) {
         checkConnectionTimer && clearTimeout(checkConnectionTimer);
         checkConnectionTimer = null;
         socket.end();
-        callback(err);
+        callback && callback(err);
         callback = null;
     });
 }
@@ -301,6 +301,9 @@ function connect() {
 
     cul.on('ready', () =>
         adapter.setState('info.connection', true, true));
+
+    cul.on('error', err =>
+        adapter.log.error('Error on Cul connection: ' +  err));
 
     cul.on('data', (raw, obj) => {
         adapter.log.debug('RAW: ' + raw + ', ' + JSON.stringify(obj));
