@@ -369,6 +369,11 @@ function main() {
     adapter.subscribeStates('*');
     
     adapter.getForeignObject('cul.meta.roles', (err, res) => {
+        if (err || !res) {
+            adapter.log.error('Object cul.meta.roles does not exists - please reinstall adapter! (' + err + ')');
+            typeof adapter.terminate === 'function' ? adapter.terminate(11) : process.exit(11);
+            return;
+        }
         metaRoles = res.native;
         adapter.getObjectView('system', 'device', {startkey: adapter.namespace + '.', endkey: adapter.namespace + '.\u9999'}, (err, res) => {
             for (let i = 0, l = res.rows.length; i < l; i++) {
