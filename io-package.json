@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "cul",
-        "version": "1.3.1",
+        "version": "1.3.2",
         "news": {
+            "1.3.2": {
+                "en": "check that all needed objects are existing on start (Sentry IOBROKER-CUL-C)\nfix Moritz device crash case (Sentry IOBROKER-CUL-7)",
+                "de": "Überprüfen Sie, ob beim Start alle benötigten Objekte vorhanden sind (Sentry IOBROKER-CUL-C).\nBehebung des Absturzfalls des Moritz-Geräts (Sentry IOBROKER-CUL-7)",
+                "ru": "проверьте наличие всех необходимых объектов при запуске (Sentry IOBROKER-CUL-C)\nисправить случай аварии устройства Морица (Sentry IOBROKER-CUL-7)",
+                "pt": "verifique se todos os objetos necessários existem no início (Sentry IOBROKER-CUL-C)\ncorrigir caso de falha do dispositivo Moritz (Sentry IOBROKER-CUL-7)",
+                "nl": "controleer of alle benodigde objecten aanwezig zijn bij het starten (Sentry IOBROKER-CUL-C)\ncrash-geval van Moritz-apparaat repareren (Sentry IOBROKER-CUL-7)",
+                "fr": "vérifier que tous les objets nécessaires existent au démarrage (Sentry IOBROKER-CUL-C)\ncorrection du cas de crash de l'appareil Moritz (Sentry IOBROKER-CUL-7)",
+                "it": "verificare che tutti gli oggetti necessari siano presenti all'avvio (Sentry IOBROKER-CUL-C)\nrisolto il crash del dispositivo Moritz (Sentry IOBROKER-CUL-7)",
+                "es": "compruebe que todos los objetos necesarios existan al inicio (Sentry IOBROKER-CUL-C)\narreglar caso de falla del dispositivo Moritz (Sentry IOBROKER-CUL-7)",
+                "pl": "sprawdź, czy wszystkie potrzebne obiekty istnieją na starcie (Sentry IOBROKER-CUL-C)\nnaprawa awarii urządzenia Moritz (Sentry IOBROKER-CUL-7)",
+                "zh-cn": "在启动时检查所有必需的对象是否已存在（Sentry IOBROKER-CUL-C）\n修复Moritz设备崩溃案例（Sentry IOBROKER-CUL-7）"
+            },
             "1.3.1": {
                 "en": "make sure connection check do not crash adapter (Sentry IOBROKER-CUL-3)\ncrashes preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
                 "de": "Stellen Sie sicher, dass die Verbindungsprüfung den Adapter nicht zum Absturz bringt (Sentry IOBROKER-CUL-3).\nAbstürze verhindert (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",

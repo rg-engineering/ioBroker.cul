@@ -30,7 +30,7 @@ Javascript/Node.js based Busware CUL USB / culfw adapter
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 1.3.2 (2020-08-23)
 * (Apollon77) check that all needed objects are existing on start (Sentry IOBROKER-CUL-C)
 * (Apollon77) fix Moritz device crash case (Sentry IOBROKER-CUL-7)
 
