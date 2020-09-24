@@ -25,7 +25,10 @@ ioBroker adapter to control FS20, Max!, HMS and other devices via [CUL](http://b
 ### Send a command to a FS20 Device in e.g. JavaScript
 ```sendTo("cul.0", "send", {"protocol":"FS20", "housecode":"A1B2", "address":"01", "command":"00"});```
 
-This command uses the CUL Library of this adapter to send the command to a FS20 Device.
+### Send a raw command (to a InterTechno device for example) using JavaSript
+```sendTo("cul.0", "sendraw", {"command": 'is0FFFFF0FFFFF'});```
+
+This commands use the CUL Library of this adapter to send the commands a Device.
 Javascript/Node.js based Busware CUL USB / culfw adapter
 
 ## Changelog
