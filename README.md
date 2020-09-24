@@ -30,6 +30,9 @@ Javascript/Node.js based Busware CUL USB / culfw adapter
 
 ## Changelog
 
+### 1.3.3 (2020-09-25)
+* (EvilEls) Added raw command support with cul.write()
+
 ### 1.3.2 (2020-08-23)
 * (Apollon77) check that all needed objects are existing on start (Sentry IOBROKER-CUL-C)
 * (Apollon77) fix Moritz device crash case (Sentry IOBROKER-CUL-7)
