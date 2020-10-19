@@ -125,6 +125,12 @@ function startAdapter(options) {
                     });
                     break;
 
+                case 'sendraw':
+                    sendRaw({
+                        command: obj.message.command
+                    });
+                    break;
+
                 default:
                     adapter.log.error('No such command: ' + obj.command);
                     break;
@@ -142,6 +148,12 @@ function startAdapter(options) {
 function sendCommand(o) {
     adapter.log.info('Send command received. Housecode: ' + o.housecode + '; address: ' + o.address + '; command: ' + o.command);
     cul.cmd(o.protocol, o.housecode, o.address, o.command);
+}
+
+function sendRaw(o) {
+    adapter.log.info('Send RAW command received. ' + o.command);
+	//cul.write('F6C480111'); // Raw command
+    cul.write(o.command);	
 }
 
 function checkConnection(host, port, timeout, callback) {
