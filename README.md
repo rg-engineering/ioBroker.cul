@@ -30,7 +30,7 @@ Javascript/Node.js based Busware CUL USB / culfw adapter
 
 ## Changelog
 
-### __WORk IN PROGRESS__
+### __WORK IN PROGRESS__
 * (Apollon77) prevent crash case (Sentry IOBROKER-CUL-D)
 
 ### 1.3.2 (2020-08-23)
