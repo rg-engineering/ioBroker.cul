@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "cul",
-        "version": "1.3.2",
+        "version": "1.3.3",
         "news": {
+            "1.3.3": {
+                "en": "prevent crash case (Sentry IOBROKER-CUL-D)",
+                "de": "Absturz verhindern (Sentry IOBROKER-CUL-D)",
+                "ru": "случай предотвращения сбоя (Sentry IOBROKER-CUL-D)",
+                "pt": "evitar caso de travamento (Sentry IOBROKER-CUL-D)",
+                "nl": "crashgeval voorkomen (Sentry IOBROKER-CUL-D)",
+                "fr": "éviter les cas de crash (Sentry IOBROKER-CUL-D)",
+                "it": "prevenire crash case (Sentry IOBROKER-CUL-D)",
+                "es": "prevenir caso de accidente (Sentry IOBROKER-CUL-D)",
+                "pl": "zapobiegaj awariom (Sentry IOBROKER-CUL-D)",
+                "zh-cn": "防止发生崩溃情况（Sentry IOBROKER-CUL-D）"
+            },
             "1.3.2": {
                 "en": "check that all needed objects are existing on start (Sentry IOBROKER-CUL-C)\nfix Moritz device crash case (Sentry IOBROKER-CUL-7)",
                 "de": "Überprüfen Sie, ob beim Start alle benötigten Objekte vorhanden sind (Sentry IOBROKER-CUL-C).\nBehebung des Absturzfalls des Moritz-Geräts (Sentry IOBROKER-CUL-7)",
