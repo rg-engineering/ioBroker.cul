@@ -35,6 +35,10 @@ function startAdapter(options) {
             adapter.log.debug('State Change ' + JSON.stringify(id) + ', State: ' + JSON.stringify(state));
             //  State Change "cul.0.FS20.123401.cmd" State: {"val":2,"ack":false,"ts":1581365531968,"q":0,"from":"system.adapter.admin.0","user":"system.user.admin","lc":1581365531968}
             const oAddr = id.split('.');
+            if (oAddr.length < 5) {
+                adapter.log.error('Invalid id used');
+                return;
+            }
             // 0: cul; 1:0; 2:FS20; 3:123401; 4:cmd;
             const sHousecode = oAddr[3].substring(0, 4);
             const sAddress = oAddr[3].substring(4, 6);
