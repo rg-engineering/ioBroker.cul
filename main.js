@@ -147,7 +147,7 @@ function startAdapter(options) {
 
 /***
  * Send a command to the cul module
- * @param {obj.message.protocol, obj.message.housecode, obj.message.address, obj.message.command} 
+ * @param {obj.message.protocol, obj.message.housecode, obj.message.address, obj.message.command}
  */
 function sendCommand(o) {
     adapter.log.info('Send command received. Housecode: ' + o.housecode + '; address: ' + o.address + '; command: ' + o.command);
@@ -157,7 +157,7 @@ function sendCommand(o) {
 function sendRaw(o) {
     adapter.log.info('Send RAW command received. ' + o.command);
 	//cul.write('F6C480111'); // Raw command
-    cul.write(o.command);	
+    cul.write(o.command);
 }
 
 function checkConnection(host, port, timeout, callback) {
@@ -232,7 +232,7 @@ const tasks = [];
 function processTasks() {
     if (tasks.length) {
         const task = tasks.shift();
-        
+
         if (task.type === 'state') {
             adapter.setForeignState(task.id, task.val, true, () =>
                 setImmediate(processTasks));
@@ -289,7 +289,7 @@ function setStates(obj) {
     isStart && processTasks();
 }
 
-function connect() {
+function connect(callback) {
     const options = {
         connectionMode: adapter.config.type === 'cuno' ? 'telnet' : 'serial' ,
         serialport: adapter.config.serialport || '/dev/ttyACM0',
@@ -315,8 +315,10 @@ function connect() {
         }, 10000);
     });
 
-    cul.on('ready', () =>
-        adapter.setState('info.connection', true, true));
+    cul.on('ready', () => {
+        adapter.setState('info.connection', true, true);
+        typeof callback === 'function' && callback();
+    });
 
     cul.on('error', err =>
         adapter.log.error('Error on Cul connection: ' +  err));
@@ -380,10 +382,7 @@ function connect() {
 }
 
 function main() {
-    
-    // in this template all states changes inside the adapters namespace are subscribed
-    adapter.subscribeStates('*');
-    
+
     adapter.getForeignObject('cul.meta.roles', (err, res) => {
         if (err || !res) {
             adapter.log.error('Object cul.meta.roles does not exists - please reinstall adapter! (' + err + ')');
@@ -399,7 +398,7 @@ function main() {
                 for (let i = 0, l = res.rows.length; i < l; i++) {
                     objects[res.rows[i].id] = res.rows[i].value;
                 }
-                connect();
+                connect(() => adapter.subscribeStates('*'));
             });
         });
     });

@@ -19,15 +19,16 @@
     "url": "https://github.com/ioBroker/ioBroker.cul"
   },
   "dependencies": {
-    "cul": "^0.16.0",
+    "cul": "^0.17.0",
     "serialport": "^9.0.7",
     "@iobroker/adapter-core": "^2.4.0"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^1.8.3",
+    "axios": "^0.21.1",
     "gulp": "^4.0.2",
-    "mocha": "^8.3.0",
-    "chai": "^4.3.0"
+    "mocha": "^8.3.2",
+    "chai": "^4.3.4"
   },
   "bugs": {
     "url": "https://github.com/ioBroker/ioBroker.cul/issues"
