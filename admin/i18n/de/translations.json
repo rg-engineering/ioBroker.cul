@@ -7,7 +7,7 @@
     "Not available": "Nicht verfügbar",
     "Not ports found": "Keine Ports gefunden",
     "Port": "Port",
-    "Select port": "Port auswählen",
+    "Select port": "Serielle Schnittstelle auswählen",
     "Serial port": "Serialport",
     "Type": "Typ"
 }
