@@ -1,325 +1,337 @@
 {
-    "common": {
-        "name": "cul",
-        "version": "1.3.5",
-        "news": {
-            "1.3.5": {
-                "en": "Make sure that cul is connected before accepting state changes (Sentry IOBROKER-CUL-R)",
-                "de": "Stellen Sie sicher, dass cul verbunden ist, bevor Sie Statusänderungen akzeptieren (Sentry IOBROKER-CUL-R).",
-                "ru": "Перед принятием изменений состояния убедитесь, что cul подключен (Sentry IOBROKER-CUL-R)",
-                "pt": "Certifique-se de que cul está conectado antes de aceitar as mudanças de estado (Sentry IOBROKER-CUL-R)",
-                "nl": "Zorg ervoor dat cul is verbonden voordat u statuswijzigingen accepteert (Sentry IOBROKER-CUL-R)",
-                "fr": "Assurez-vous que cul est connecté avant d'accepter les changements d'état (Sentry IOBROKER-CUL-R)",
-                "it": "Assicurati che cul sia connesso prima di accettare i cambiamenti di stato (Sentry IOBROKER-CUL-R)",
-                "es": "Asegúrese de que cul esté conectado antes de aceptar cambios de estado (Sentry IOBROKER-CUL-R)",
-                "pl": "Upewnij się, że cul jest podłączony przed zaakceptowaniem zmian stanu (Sentry IOBROKER-CUL-R)",
-                "zh-cn": "在接受状态更改之前，请确保已连接cul（Sentry IOBROKER-CUL-R）"
-            },
-            "1.3.4": {
-                "en": "prevent crash case (Sentry IOBROKER-CUL-D)",
-                "de": "Absturz verhindern (Sentry IOBROKER-CUL-D)",
-                "ru": "случай предотвращения сбоя (Sentry IOBROKER-CUL-D)",
-                "pt": "evitar caso de travamento (Sentry IOBROKER-CUL-D)",
-                "nl": "crashgeval voorkomen (Sentry IOBROKER-CUL-D)",
-                "fr": "éviter les cas de crash (Sentry IOBROKER-CUL-D)",
-                "it": "prevenire crash case (Sentry IOBROKER-CUL-D)",
-                "es": "prevenir caso de accidente (Sentry IOBROKER-CUL-D)",
-                "pl": "zapobiegaj awariom (Sentry IOBROKER-CUL-D)",
-                "zh-cn": "防止发生崩溃情况（Sentry IOBROKER-CUL-D）"
-            },
-            "1.3.3": {
-                "en": "Added raw command support with cul.write()",
-                "de": "Unterstützung für Raw-Befehle mit cul.write () hinzugefügt",
-                "ru": "Добавлена поддержка необработанных команд с cul.write ()",
-                "pt": "Adicionado suporte de comando bruto com cul.write ()",
-                "nl": "Ondersteuning voor onbewerkte opdrachten toegevoegd met cul.write ()",
-                "fr": "Ajout de la prise en charge des commandes brutes avec cul.write ()",
-                "it": "Aggiunto supporto per comandi grezzi con cul.write ()",
-                "es": "Se agregó soporte de comando sin procesar con cul.write ()",
-                "pl": "Dodano obsługę surowych poleceń z cul.write ()",
-                "zh-cn": "使用cul.write（）添加了原始命令支持"
-            },
-            "1.3.2": {
-                "en": "check that all needed objects are existing on start (Sentry IOBROKER-CUL-C)\nfix Moritz device crash case (Sentry IOBROKER-CUL-7)",
-                "de": "Überprüfen Sie, ob beim Start alle benötigten Objekte vorhanden sind (Sentry IOBROKER-CUL-C).\nBehebung des Absturzfalls des Moritz-Geräts (Sentry IOBROKER-CUL-7)",
-                "ru": "проверьте наличие всех необходимых объектов при запуске (Sentry IOBROKER-CUL-C)\nисправить случай аварии устройства Морица (Sentry IOBROKER-CUL-7)",
-                "pt": "verifique se todos os objetos necessários existem no início (Sentry IOBROKER-CUL-C)\ncorrigir caso de falha do dispositivo Moritz (Sentry IOBROKER-CUL-7)",
-                "nl": "controleer of alle benodigde objecten aanwezig zijn bij het starten (Sentry IOBROKER-CUL-C)\ncrash-geval van Moritz-apparaat repareren (Sentry IOBROKER-CUL-7)",
-                "fr": "vérifier que tous les objets nécessaires existent au démarrage (Sentry IOBROKER-CUL-C)\ncorrection du cas de crash de l'appareil Moritz (Sentry IOBROKER-CUL-7)",
-                "it": "verificare che tutti gli oggetti necessari siano presenti all'avvio (Sentry IOBROKER-CUL-C)\nrisolto il crash del dispositivo Moritz (Sentry IOBROKER-CUL-7)",
-                "es": "compruebe que todos los objetos necesarios existan al inicio (Sentry IOBROKER-CUL-C)\narreglar caso de falla del dispositivo Moritz (Sentry IOBROKER-CUL-7)",
-                "pl": "sprawdź, czy wszystkie potrzebne obiekty istnieją na starcie (Sentry IOBROKER-CUL-C)\nnaprawa awarii urządzenia Moritz (Sentry IOBROKER-CUL-7)",
-                "zh-cn": "在启动时检查所有必需的对象是否已存在（Sentry IOBROKER-CUL-C）\n修复Moritz设备崩溃案例（Sentry IOBROKER-CUL-7）"
-            },
-            "1.3.1": {
-                "en": "make sure connection check do not crash adapter (Sentry IOBROKER-CUL-3)\ncrashes preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
-                "de": "Stellen Sie sicher, dass die Verbindungsprüfung den Adapter nicht zum Absturz bringt (Sentry IOBROKER-CUL-3).\nAbstürze verhindert (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
-                "ru": "убедитесь, что проверка соединения не дает сбой адаптеру (Sentry IOBROKER-CUL-3)\nпредотвращены сбои (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
-                "pt": "verifique se a verificação da conexão não está travando o adaptador (Sentry IOBROKER-CUL-3)\nprevenção de falhas (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
-                "nl": "zorg ervoor dat de verbindingscontrole de adapter niet crasht (Sentry IOBROKER-CUL-3)\ncrashes voorkomen (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
-                "fr": "assurez-vous que la vérification de la connexion ne plante pas l'adaptateur (Sentry IOBROKER-CUL-3)\nplantages évités (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
-                "it": "assicurarsi che il controllo della connessione non arresti in modo anomalo l'adattatore (Sentry IOBROKER-CUL-3)\ncrash preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
-                "es": "asegúrese de que la comprobación de conexión no bloquee el adaptador (Sentry IOBROKER-CUL-3)\naccidentes previstos (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
-                "pl": "upewnij się, że sprawdzenie połączenia nie powoduje awarii adaptera (Sentry IOBROKER-CUL-3)\nzapobiega awariom (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
-                "zh-cn": "确保连接检查不会使适配器崩溃（Sentry IOBROKER-CUL-3）\n防止崩溃（哨兵IOBROKER-CUL-5，IOBROKER-CUL-8）"
-            },
-            "1.3.0": {
-                "en": "Really update dependencies and Serialport",
-                "de": "Aktualisieren Sie wirklich Abhängigkeiten und Serialport",
-                "ru": "Действительно обновить зависимости и Serialport",
-                "pt": "Atualize realmente dependências e Serialport",
-                "nl": "Werk afhankelijkheden en seriële poort echt bij",
-                "fr": "Vraiment mettre à jour les dépendances et Serialport",
-                "it": "Aggiorna davvero le dipendenze e Serialport",
-                "es": "Realmente actualice las dependencias y Serialport",
-                "pl": "Naprawdę aktualizuj zależności i port szeregowy",
-                "zh-cn": "真正更新依赖项和Serialport"
-            },
-            "1.2.2": {
-                "en": "dependencies/Serialport updated",
-                "de": "Abhängigkeiten / Serialport aktualisiert",
-                "ru": "зависимости / Serialport обновлен",
-                "pt": "dependências / Serialport atualizado",
-                "nl": "afhankelijkheden / seriële poort bijgewerkt",
-                "fr": "dépendances / Serialport mis à jour",
-                "it": "dipendenze / Serialport aggiornati",
-                "es": "dependencias / Serialport actualizado",
-                "pl": "zależności / zaktualizowano Serialport",
-                "zh-cn": "依赖项/串行端口已更新"
-            },
-            "1.2.1": {
-                "en": "Changed license from non SPDX conform \"GPL-2.0\" to \"GPL-2.0-or-later\"",
-                "de": "Die Lizenz wurde von Nicht-SPDX-konformem \"GPL-2.0\" zu \"GPL-2.0-oder höher\" geändert.",
-                "ru": "Изменена лицензия с не SPDX, соответствующего «GPL-2.0» на «GPL-2.0 или более поздняя»",
-                "pt": "Licença alterada de \"GPL-2.0\" não compatível com SPDX para \"GPL-2.0-or-later\"",
-                "nl": "Licentie gewijzigd van niet-SPDX-conform \"GPL-2.0\" naar \"GPL-2.0-of-later\"",
-                "fr": "Changement de licence de «GPL-2.0» non conforme SPDX à «GPL-2.0 ou version ultérieure»",
-                "it": "Licenza modificata da non SPDX conforme \"GPL-2.0\" a \"GPL-2.0-o-successiva\"",
-                "es": "Se cambió la licencia de no compatible con SPDX \"GPL-2.0\" a \"GPL-2.0-or-later\"",
-                "pl": "Zmieniono licencję z „GPL-2.0” niezgodnej z SPDX na „GPL-2.0-or-later”",
-                "zh-cn": "将许可证从不符合SPDX的“ GPL-2.0”更改为“ GPL-2.0或更高版本”"
-            },
-            "1.2.0": {
-                "en": "Sending of FS20 cmdRAW possible or via sendTo as described in the readme.",
-                "de": "Senden von FS20 cmdRAW möglich oder über sendTo wie in der Readme beschrieben.",
-                "ru": "Отправка FS20 cmdRAW возможна или через sendTo, как описано в файле readme.",
-                "pt": "É possível enviar FS20 cmdRAW ou via sendTo, conforme descrito no leia-me.",
-                "nl": "Verzenden van FS20 cmdRAW mogelijk of via sendTo zoals beschreven in de readme.",
-                "fr": "Envoi de FS20 cmdRAW possible ou via sendTo comme décrit dans le readme.",
-                "it": "Invio di cmdRAW FS20 possibile o tramite sendTo come descritto nel file Leggimi.",
-                "es": "Se puede enviar FS20 cmdRAW o mediante sendTo como se describe en el archivo Léame.",
-                "pl": "Wysyłanie FS20 cmdRAW jest możliwe lub poprzez sendTo zgodnie z opisem w pliku Readme.",
-                "zh-cn": "可以发送FS20 cmdRAW，也可以按照自述文件中的说明发送sendTo。"
-            },
-            "1.1.0": {
-                "en": "removed usage of adapter.objects",
-                "de": "Verwendung von adapter.objects entfernt",
-                "ru": "удалено использование файла adapter.objects",
-                "pt": "removido o uso de adapter.objects",
-                "nl": "gebruik van adapter.objects verwijderd",
-                "fr": "utilisation supprimée de adapter.objects",
-                "it": "rimosso l'utilizzo di adapter.objects",
-                "es": "uso eliminado de adaptador.objetos",
-                "pl": "usunięto użycie adapter.objects",
-                "zh-cn": "删除了adapter.objects的用法"
-            },
-            "1.0.0": {
-                "en": "Support for nodejs 12 added, nodejs 4 is no longer supported!",
-                "de": "Unterstützung für NodeJS 12 hinzugefügt, NodeJS 4 wird nicht mehr unterstützt!",
-                "ru": "Добавлена ​​поддержка nodejs 12, nodejs 4 больше не поддерживается!",
-                "pt": "Suporte para nodejs 12 adicionado, nodejs 4 não é mais suportado!",
-                "nl": "Ondersteuning voor nodejs 12 toegevoegd, nodejs 4 wordt niet langer ondersteund!",
-                "fr": "Prise en charge de nodejs 12 ajoutée, nodejs 4 n'est plus prise en charge!",
-                "it": "Supporto per nodejs 12 aggiunto, nodejs 4 non è più supportato!",
-                "es": "Se agregó soporte para nodejs 12, ¡nodejs 4 ya no es compatible!",
-                "pl": "Dodano wsparcie dla nodejs 12, nodejs 4 nie jest już obsługiwany!",
-                "zh-cn": "添加了对nodejs 12的支持，不再支持nodejs 4！"
-            },
-            "0.4.0": {
-                "en": "Optimizations for nanoCul, Support for ESA devices",
-                "de": "Optimierungen für nanoCul, Unterstützung für ESA-Geräte",
-                "ru": "Оптимизация для nanoCul, поддержка устройств ESA",
-                "pt": "Otimizações para nanoCul, Suporte para dispositivos ESA",
-                "nl": "Optimalisaties voor nanoCul, ondersteuning voor ESA-apparaten",
-                "fr": "Optimisations pour nanoCul, prise en charge des périphériques ESA",
-                "it": "Ottimizzazioni per nanoCul, supporto per dispositivi ESA",
-                "es": "Optimizaciones para nanoCul, Soporte para dispositivos ESA",
-                "pl": "Optymalizacje dla nanoCul, Obsługa urządzeń ESA"
-            }
-        },
-        "title": "CUL/culfw",
-        "desc": {
-            "en": "Javascript/Node.js based Busware CUL USB/culfw adapter",
-            "de": "Javascript/Node.js basierter Busware CUL USB/Culfw Adapter",
-            "ru": "Адаптер Busware CUL USB/culfw",
-            "pt": "Adaptador Bus/CUL USB/culfw baseado em Javascript/Node.js",
-            "nl": "Op Javascript/Node.js gebaseerde Busware CUL USB/culfw-adapter",
-            "fr": "Adaptateur USB/culfw Busware CUL basé sur Javascript/Node.js",
-            "it": "Adattatore Bus/Culfw CUL basato su Javascript/Node.js",
-            "es": "Adaptador USB/culfw Busware CUL basado en Javascript/Node.js",
-            "pl": "Adapter Busware CUL USB/culfw oparty na Javascript/Node.js",
-            "zh-cn": "基于Javascript/Node.js的Busware CUL USB/culfw适配器"
-        },
-        "platform": "javascript/Node.js",
-        "mode": "daemon",
-        "loglevel": "info",
-        "license": "GPL-2.0-or-later",
-        "enabled": true,
-        "messagebox": true,
-        "materialize": true,
-        "compact": true,
-        "icon": "busware.jpg",
-        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.cul/master/admin/busware.jpg",
-        "keywords": [
-            "cul",
-            "coc",
-            "cuno",
-            "FS20",
-            "MAX!",
-            "HMS",
-            "FHT",
-            "EM",
-            "ELV",
-            "868",
-            "busware"
-        ],
-        "readme": "https://github.com/ioBroker/ioBroker.cul/blob/master/README.md",
-        "type": "iot-systems",
-        "authors": [
-            "hobbyquaker <hq@ccu.io>"
-        ],
-        "dependencies": [
-            {
-                "js-controller": ">= 2.0.0"
-            }
-        ],
-        "plugins": {
-            "sentry": {
-                "dsn": "https://1df51a90ee094b88983dc43d700a5066@sentry.iobroker.net/89"
-            }
-        }
+  "common": {
+    "name": "cul",
+    "version": "1.3.6",
+    "news": {
+      "1.3.5": {
+        "en": "Make sure that cul is connected before accepting state changes (Sentry IOBROKER-CUL-R)",
+        "de": "Stellen Sie sicher, dass cul verbunden ist, bevor Sie Statusänderungen akzeptieren (Sentry IOBROKER-CUL-R).",
+        "ru": "Перед принятием изменений состояния убедитесь, что cul подключен (Sentry IOBROKER-CUL-R)",
+        "pt": "Certifique-se de que cul está conectado antes de aceitar as mudanças de estado (Sentry IOBROKER-CUL-R)",
+        "nl": "Zorg ervoor dat cul is verbonden voordat u statuswijzigingen accepteert (Sentry IOBROKER-CUL-R)",
+        "fr": "Assurez-vous que cul est connecté avant d'accepter les changements d'état (Sentry IOBROKER-CUL-R)",
+        "it": "Assicurati che cul sia connesso prima di accettare i cambiamenti di stato (Sentry IOBROKER-CUL-R)",
+        "es": "Asegúrese de que cul esté conectado antes de aceptar cambios de estado (Sentry IOBROKER-CUL-R)",
+        "pl": "Upewnij się, że cul jest podłączony przed zaakceptowaniem zmian stanu (Sentry IOBROKER-CUL-R)",
+        "zh-cn": "在接受状态更改之前，请确保已连接cul（Sentry IOBROKER-CUL-R）"
+      },
+      "1.3.4": {
+        "en": "prevent crash case (Sentry IOBROKER-CUL-D)",
+        "de": "Absturz verhindern (Sentry IOBROKER-CUL-D)",
+        "ru": "случай предотвращения сбоя (Sentry IOBROKER-CUL-D)",
+        "pt": "evitar caso de travamento (Sentry IOBROKER-CUL-D)",
+        "nl": "crashgeval voorkomen (Sentry IOBROKER-CUL-D)",
+        "fr": "éviter les cas de crash (Sentry IOBROKER-CUL-D)",
+        "it": "prevenire crash case (Sentry IOBROKER-CUL-D)",
+        "es": "prevenir caso de accidente (Sentry IOBROKER-CUL-D)",
+        "pl": "zapobiegaj awariom (Sentry IOBROKER-CUL-D)",
+        "zh-cn": "防止发生崩溃情况（Sentry IOBROKER-CUL-D）"
+      },
+      "1.3.3": {
+        "en": "Added raw command support with cul.write()",
+        "de": "Unterstützung für Raw-Befehle mit cul.write () hinzugefügt",
+        "ru": "Добавлена поддержка необработанных команд с cul.write ()",
+        "pt": "Adicionado suporte de comando bruto com cul.write ()",
+        "nl": "Ondersteuning voor onbewerkte opdrachten toegevoegd met cul.write ()",
+        "fr": "Ajout de la prise en charge des commandes brutes avec cul.write ()",
+        "it": "Aggiunto supporto per comandi grezzi con cul.write ()",
+        "es": "Se agregó soporte de comando sin procesar con cul.write ()",
+        "pl": "Dodano obsługę surowych poleceń z cul.write ()",
+        "zh-cn": "使用cul.write（）添加了原始命令支持"
+      },
+      "1.3.2": {
+        "en": "check that all needed objects are existing on start (Sentry IOBROKER-CUL-C)\nfix Moritz device crash case (Sentry IOBROKER-CUL-7)",
+        "de": "Überprüfen Sie, ob beim Start alle benötigten Objekte vorhanden sind (Sentry IOBROKER-CUL-C).\nBehebung des Absturzfalls des Moritz-Geräts (Sentry IOBROKER-CUL-7)",
+        "ru": "проверьте наличие всех необходимых объектов при запуске (Sentry IOBROKER-CUL-C)\nисправить случай аварии устройства Морица (Sentry IOBROKER-CUL-7)",
+        "pt": "verifique se todos os objetos necessários existem no início (Sentry IOBROKER-CUL-C)\ncorrigir caso de falha do dispositivo Moritz (Sentry IOBROKER-CUL-7)",
+        "nl": "controleer of alle benodigde objecten aanwezig zijn bij het starten (Sentry IOBROKER-CUL-C)\ncrash-geval van Moritz-apparaat repareren (Sentry IOBROKER-CUL-7)",
+        "fr": "vérifier que tous les objets nécessaires existent au démarrage (Sentry IOBROKER-CUL-C)\ncorrection du cas de crash de l'appareil Moritz (Sentry IOBROKER-CUL-7)",
+        "it": "verificare che tutti gli oggetti necessari siano presenti all'avvio (Sentry IOBROKER-CUL-C)\nrisolto il crash del dispositivo Moritz (Sentry IOBROKER-CUL-7)",
+        "es": "compruebe que todos los objetos necesarios existan al inicio (Sentry IOBROKER-CUL-C)\narreglar caso de falla del dispositivo Moritz (Sentry IOBROKER-CUL-7)",
+        "pl": "sprawdź, czy wszystkie potrzebne obiekty istnieją na starcie (Sentry IOBROKER-CUL-C)\nnaprawa awarii urządzenia Moritz (Sentry IOBROKER-CUL-7)",
+        "zh-cn": "在启动时检查所有必需的对象是否已存在（Sentry IOBROKER-CUL-C）\n修复Moritz设备崩溃案例（Sentry IOBROKER-CUL-7）"
+      },
+      "1.3.1": {
+        "en": "make sure connection check do not crash adapter (Sentry IOBROKER-CUL-3)\ncrashes preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+        "de": "Stellen Sie sicher, dass die Verbindungsprüfung den Adapter nicht zum Absturz bringt (Sentry IOBROKER-CUL-3).\nAbstürze verhindert (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+        "ru": "убедитесь, что проверка соединения не дает сбой адаптеру (Sentry IOBROKER-CUL-3)\nпредотвращены сбои (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+        "pt": "verifique se a verificação da conexão não está travando o adaptador (Sentry IOBROKER-CUL-3)\nprevenção de falhas (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+        "nl": "zorg ervoor dat de verbindingscontrole de adapter niet crasht (Sentry IOBROKER-CUL-3)\ncrashes voorkomen (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+        "fr": "assurez-vous que la vérification de la connexion ne plante pas l'adaptateur (Sentry IOBROKER-CUL-3)\nplantages évités (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+        "it": "assicurarsi che il controllo della connessione non arresti in modo anomalo l'adattatore (Sentry IOBROKER-CUL-3)\ncrash preventd (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+        "es": "asegúrese de que la comprobación de conexión no bloquee el adaptador (Sentry IOBROKER-CUL-3)\naccidentes previstos (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+        "pl": "upewnij się, że sprawdzenie połączenia nie powoduje awarii adaptera (Sentry IOBROKER-CUL-3)\nzapobiega awariom (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
+        "zh-cn": "确保连接检查不会使适配器崩溃（Sentry IOBROKER-CUL-3）\n防止崩溃（哨兵IOBROKER-CUL-5，IOBROKER-CUL-8）"
+      },
+      "1.3.0": {
+        "en": "Really update dependencies and Serialport",
+        "de": "Aktualisieren Sie wirklich Abhängigkeiten und Serialport",
+        "ru": "Действительно обновить зависимости и Serialport",
+        "pt": "Atualize realmente dependências e Serialport",
+        "nl": "Werk afhankelijkheden en seriële poort echt bij",
+        "fr": "Vraiment mettre à jour les dépendances et Serialport",
+        "it": "Aggiorna davvero le dipendenze e Serialport",
+        "es": "Realmente actualice las dependencias y Serialport",
+        "pl": "Naprawdę aktualizuj zależności i port szeregowy",
+        "zh-cn": "真正更新依赖项和Serialport"
+      },
+      "1.2.2": {
+        "en": "dependencies/Serialport updated",
+        "de": "Abhängigkeiten / Serialport aktualisiert",
+        "ru": "зависимости / Serialport обновлен",
+        "pt": "dependências / Serialport atualizado",
+        "nl": "afhankelijkheden / seriële poort bijgewerkt",
+        "fr": "dépendances / Serialport mis à jour",
+        "it": "dipendenze / Serialport aggiornati",
+        "es": "dependencias / Serialport actualizado",
+        "pl": "zależności / zaktualizowano Serialport",
+        "zh-cn": "依赖项/串行端口已更新"
+      },
+      "1.2.1": {
+        "en": "Changed license from non SPDX conform \"GPL-2.0\" to \"GPL-2.0-or-later\"",
+        "de": "Die Lizenz wurde von Nicht-SPDX-konformem \"GPL-2.0\" zu \"GPL-2.0-oder höher\" geändert.",
+        "ru": "Изменена лицензия с не SPDX, соответствующего «GPL-2.0» на «GPL-2.0 или более поздняя»",
+        "pt": "Licença alterada de \"GPL-2.0\" não compatível com SPDX para \"GPL-2.0-or-later\"",
+        "nl": "Licentie gewijzigd van niet-SPDX-conform \"GPL-2.0\" naar \"GPL-2.0-of-later\"",
+        "fr": "Changement de licence de «GPL-2.0» non conforme SPDX à «GPL-2.0 ou version ultérieure»",
+        "it": "Licenza modificata da non SPDX conforme \"GPL-2.0\" a \"GPL-2.0-o-successiva\"",
+        "es": "Se cambió la licencia de no compatible con SPDX \"GPL-2.0\" a \"GPL-2.0-or-later\"",
+        "pl": "Zmieniono licencję z „GPL-2.0” niezgodnej z SPDX na „GPL-2.0-or-later”",
+        "zh-cn": "将许可证从不符合SPDX的“ GPL-2.0”更改为“ GPL-2.0或更高版本”"
+      },
+      "1.2.0": {
+        "en": "Sending of FS20 cmdRAW possible or via sendTo as described in the readme.",
+        "de": "Senden von FS20 cmdRAW möglich oder über sendTo wie in der Readme beschrieben.",
+        "ru": "Отправка FS20 cmdRAW возможна или через sendTo, как описано в файле readme.",
+        "pt": "É possível enviar FS20 cmdRAW ou via sendTo, conforme descrito no leia-me.",
+        "nl": "Verzenden van FS20 cmdRAW mogelijk of via sendTo zoals beschreven in de readme.",
+        "fr": "Envoi de FS20 cmdRAW possible ou via sendTo comme décrit dans le readme.",
+        "it": "Invio di cmdRAW FS20 possibile o tramite sendTo come descritto nel file Leggimi.",
+        "es": "Se puede enviar FS20 cmdRAW o mediante sendTo como se describe en el archivo Léame.",
+        "pl": "Wysyłanie FS20 cmdRAW jest możliwe lub poprzez sendTo zgodnie z opisem w pliku Readme.",
+        "zh-cn": "可以发送FS20 cmdRAW，也可以按照自述文件中的说明发送sendTo。"
+      },
+      "1.1.0": {
+        "en": "removed usage of adapter.objects",
+        "de": "Verwendung von adapter.objects entfernt",
+        "ru": "удалено использование файла adapter.objects",
+        "pt": "removido o uso de adapter.objects",
+        "nl": "gebruik van adapter.objects verwijderd",
+        "fr": "utilisation supprimée de adapter.objects",
+        "it": "rimosso l'utilizzo di adapter.objects",
+        "es": "uso eliminado de adaptador.objetos",
+        "pl": "usunięto użycie adapter.objects",
+        "zh-cn": "删除了adapter.objects的用法"
+      },
+      "1.0.0": {
+        "en": "Support for nodejs 12 added, nodejs 4 is no longer supported!",
+        "de": "Unterstützung für NodeJS 12 hinzugefügt, NodeJS 4 wird nicht mehr unterstützt!",
+        "ru": "Добавлена ​​поддержка nodejs 12, nodejs 4 больше не поддерживается!",
+        "pt": "Suporte para nodejs 12 adicionado, nodejs 4 não é mais suportado!",
+        "nl": "Ondersteuning voor nodejs 12 toegevoegd, nodejs 4 wordt niet langer ondersteund!",
+        "fr": "Prise en charge de nodejs 12 ajoutée, nodejs 4 n'est plus prise en charge!",
+        "it": "Supporto per nodejs 12 aggiunto, nodejs 4 non è più supportato!",
+        "es": "Se agregó soporte para nodejs 12, ¡nodejs 4 ya no es compatible!",
+        "pl": "Dodano wsparcie dla nodejs 12, nodejs 4 nie jest już obsługiwany!",
+        "zh-cn": "添加了对nodejs 12的支持，不再支持nodejs 4！"
+      },
+      "0.4.0": {
+        "en": "Optimizations for nanoCul, Support for ESA devices",
+        "de": "Optimierungen für nanoCul, Unterstützung für ESA-Geräte",
+        "ru": "Оптимизация для nanoCul, поддержка устройств ESA",
+        "pt": "Otimizações para nanoCul, Suporte para dispositivos ESA",
+        "nl": "Optimalisaties voor nanoCul, ondersteuning voor ESA-apparaten",
+        "fr": "Optimisations pour nanoCul, prise en charge des périphériques ESA",
+        "it": "Ottimizzazioni per nanoCul, supporto per dispositivi ESA",
+        "es": "Optimizaciones para nanoCul, Soporte para dispositivos ESA",
+        "pl": "Optymalizacje dla nanoCul, Obsługa urządzeń ESA"
+      }
     },
-    "native": {
-        "serialport": "",
-        "baudrate": 9600,
-        "mode": "SlowRF",
-        "type": "cul",
-        "ip": "127.0.0.1",
-        "port": "23"
+    "title": "CUL/culfw",
+    "desc": {
+      "en": "Javascript/Node.js based Busware CUL USB/culfw adapter",
+      "de": "Javascript/Node.js basierter Busware CUL USB/Culfw Adapter",
+      "ru": "Адаптер Busware CUL USB/culfw",
+      "pt": "Adaptador Bus/CUL USB/culfw baseado em Javascript/Node.js",
+      "nl": "Op Javascript/Node.js gebaseerde Busware CUL USB/culfw-adapter",
+      "fr": "Adaptateur USB/culfw Busware CUL basé sur Javascript/Node.js",
+      "it": "Adattatore Bus/Culfw CUL basato su Javascript/Node.js",
+      "es": "Adaptador USB/culfw Busware CUL basado en Javascript/Node.js",
+      "pl": "Adapter Busware CUL USB/culfw oparty na Javascript/Node.js",
+      "zh-cn": "基于Javascript/Node.js的Busware CUL USB/culfw适配器"
     },
-    "objects": [
-        {
-            "_id": "_design/cul",
-            "language": "javascript",
-            "views": {
-                "devices": {
-                    "map": "function(doc) {\n  if (doc.type == 'device' && doc._id.slice(0, 4) == 'cul') {\n   emit(doc._id, doc);\n  }\n}"
-                }
-            }
-        },
-        {
-            "_id": "cul.meta.roles",
-            "parent": "cul",
-            "type": "meta",
-            "meta": {
-                "type": "roles",
-                "adapter": "cul"
-            },
-            "common": {},
-            "native": {
-                "cmd": {
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "role": "state"
-                },
-                "bidirectional": {
-                    "type": "boolean",
-                    "read": true,
-                    "write": false,
-                    "role": "indicator"
-                },
-                "extended": {
-                    "type": "boolean",
-                    "read": true,
-                    "write": false,
-                    "role": "indicator"
-                },
-                "response": {
-                    "type": "boolean",
-                    "read": true,
-                    "write": false,
-                    "role": "indicator"
-                },
-                "temperature": {
-                    "type": "number",
-                    "unit": "°C",
-                    "read": true,
-                    "write": false,
-                    "role": "value.temperature"
-                },
-                "humidity": {
-                    "type": "number",
-                    "unit": "%",
-                    "min": 0,
-                    "max": 100,
-                    "read": true,
-                    "write": false,
-                    "role": "value.humidity"
-                },
-                "battery": {
-                    "type": "number",
-                    "list": [
-                        "ok",
-                        "empty",
-                        "replaced"
-                    ],
-                    "read": true,
-                    "write": false,
-                    "role": "indicator"
-                },
-                "undefined": {
-                    "type": "string",
-                    "read": true,
-                    "write": false,
-                    "role": "state"
-                }
-            }
-        }
+    "platform": "javascript/Node.js",
+    "mode": "daemon",
+    "loglevel": "info",
+    "license": "GPL-2.0-or-later",
+    "enabled": true,
+    "messagebox": true,
+    "materialize": true,
+    "compact": true,
+    "icon": "busware.jpg",
+    "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.cul/master/admin/busware.jpg",
+    "keywords": [
+      "cul",
+      "coc",
+      "cuno",
+      "FS20",
+      "MAX!",
+      "HMS",
+      "FHT",
+      "EM",
+      "ELV",
+      "868",
+      "busware"
     ],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "If connected to CUL",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.rawData",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "raw data",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
+    "readme": "https://github.com/ioBroker/ioBroker.cul/blob/master/README.md",
+    "type": "iot-systems",
+    "authors": [
+      "hobbyquaker <hq@ccu.io>"
+    ],
+    "dependencies": [
+      {
+        "js-controller": ">= 2.0.0"
+      }
+    ],
+    "plugins": {
+      "sentry": {
+        "dsn": "https://1df51a90ee094b88983dc43d700a5066@sentry.iobroker.net/89"
+      }
+    }
+  },
+  "native": {
+    "serialport": "",
+    "baudrate": 9600,
+    "mode": "SlowRF",
+    "type": "cul",
+    "ip": "127.0.0.1",
+    "port": "23"
+  },
+  "objects": [
+    {
+      "_id": "_design/cul",
+      "language": "javascript",
+      "views": {
+        "devices": {
+          "map": "function(doc) {\n  if (doc.type == 'device' && doc._id.slice(0, 4) == 'cul') {\n   emit(doc._id, doc);\n  }\n}"
         }
-    ]
+      }
+    },
+    {
+      "_id": "cul.meta.roles",
+      "parent": "cul",
+      "type": "meta",
+      "meta": {
+        "type": "roles",
+        "adapter": "cul"
+      },
+      "common": {},
+      "native": {
+        "cmd": {
+          "type": "number",
+          "read": true,
+          "write": false,
+          "role": "state"
+        },
+        "bidirectional": {
+          "type": "boolean",
+          "read": true,
+          "write": false,
+          "role": "indicator"
+        },
+        "extended": {
+          "type": "boolean",
+          "read": true,
+          "write": false,
+          "role": "indicator"
+        },
+        "response": {
+          "type": "boolean",
+          "read": true,
+          "write": false,
+          "role": "indicator"
+        },
+        "temperature": {
+          "type": "number",
+          "unit": "°C",
+          "read": true,
+          "write": false,
+          "role": "value.temperature"
+        },
+        "humidity": {
+          "type": "number",
+          "unit": "%",
+          "min": 0,
+          "max": 100,
+          "read": true,
+          "write": false,
+          "role": "value.humidity"
+        },
+        "battery": {
+          "type": "number",
+          "list": [
+            "ok",
+            "empty",
+            "replaced"
+          ],
+          "read": true,
+          "write": false,
+          "role": "indicator"
+        },
+        "undefined": {
+          "type": "string",
+          "read": true,
+          "write": false,
+          "role": "state"
+        }
+      }
+    }
+  ],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "If connected to CUL",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.rawData",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "raw data",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.version",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "cul version",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
 }

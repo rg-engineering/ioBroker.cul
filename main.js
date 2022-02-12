@@ -327,9 +327,22 @@ function connect(callback) {
         adapter.log.debug('RAW: ' + raw + ', ' + JSON.stringify(obj));
         adapter.setState('info.rawData', raw, true);
 
+
+        if (raw && raw[0] == "V") {
+            let version = raw;
+            adapter.log.info('cul version: ' + version);
+            adapter.setState('info.version', version, true);
+        }
+
+
         if (!obj || !obj.protocol || !obj.address) {
+            
             return;
         }
+
+        
+
+
         const id = obj.protocol + '.' + obj.address;
 
         const isStart = !tasks.length;
@@ -379,6 +392,8 @@ function connect(callback) {
         isStart && processTasks();
     });
 
+
+    cul.write("V");
 }
 
 function main() {
